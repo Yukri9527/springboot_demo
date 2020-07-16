@@ -1,33 +1,63 @@
 package demo;
 
-public class Philosopher {
+public class Philosopher implements Runnable {
 
-	private String[] name = { "A", "B", "C", "D" };
+	public String[] ph = { "A", "B", "C", "D" };
+	private int index;
+	public static Chopstick chop = new Chopstick();
 
-	private Chopstick left;
+	public Philosopher(int index) {
+		this.index = index;
+	}
 
-	private Chopstick right;
+	
 
-	private Integer thinkFactor;
-
-	public void think() {
+	public synchronized void thinking() {
+		int index = toInt(Thread.currentThread().getName());;
+		System.out.println("哲学家" + ph[index] + "在思考");
 		try {
 			Thread.sleep(500);
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public synchronized void eating() {
+		System.out.println("哲学家" + ph[index] + "在吃饭");
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void run() {
+		// 拿起筷子-> 吃饭-> 放下筷子-> 思考
+		while (true) {
+			chop.takeChopsticks(index); // p操作
+			eating();
+			chop.putChopsticks(index); // v操作
+			thinking();
 		}
 	}
 	
-	public void run() {
-		while (!Thread.interrupted()) {
-				
-			 //TODO 右⼿拿筷⼦
-			 //TODO 左⼿拿筷⼦
-			 //sout(this.name + " is eating”)
-			 //思考 think()
-			 //TODO 放下右筷⼦
-			 //TODO 放下左筷⼦
-			}
+	// 字符串转化
+	public int toInt(String index) {
+		int result = 0;
+		if (index.equals(0)) {
+			result = 0;
+		}
+		if (index.equals(1)) {
+			result = 1;
+		}
+		if (index.equals(2)) {
+			result = 2;
+		}
+		if (index.equals(3)) {
+			result = 3;
+		}
+		return result;
 	}
-
 }
