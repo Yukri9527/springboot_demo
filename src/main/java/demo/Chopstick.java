@@ -3,8 +3,11 @@ package demo;
 public class Chopstick {
 	
 	public boolean[] isUsing = new boolean[4];
+	
 	public String[] ph= {"A","B","C","D"};
+	
 	public synchronized void takeChopsticks(int index) {
+		
 		while (isUsing[index] && isUsing[(index + 1) % 4]) { // 左右手资源同时存在才拿起筷子
 			try {
 				wait(); // 等待eat响应

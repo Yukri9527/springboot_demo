@@ -9,4 +9,5 @@ public class MySpringBootApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MySpringBootApplication.class);
 	}
+	//SpringApplication 只能在最外层包中使用 扫描只会扫描SpringApplication下级的包
 }
