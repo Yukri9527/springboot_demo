@@ -1,0 +1,9 @@
+阿里云镜像仓库：
+https://developer.aliyun.com/article/78124
+
+
+homework 
+1.根据Excel定义好实体类Population
+2.创建处理类 处理Excel表格
+3.创建一个PopulationDAO 参考TestUserDAO 最后把list存储到数据库中
+4.写一个Controller 可以根据id 找到数据
