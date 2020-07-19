@@ -16,45 +16,45 @@ public class Population {
 	private String lname;
 	@Column(length = 50)
 	private String municipalities;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long totalPopulation;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long population0_14;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long population15_64;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long population_65;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long foreigners;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long inhabitedPopulation;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long liveBirths;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long deaths;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long imigrantsIn;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long imigrantsOut;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long daytimePopulation;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long households;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long privateHouseholds;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long nuclearFamilies;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long onepersonHouseholds;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long nuclearFamily_65;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long agedCouple;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long singleAgedCouple;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long marriages;
-	@Column(length = 20)
+	@Column(length = 50)
 	private Long divorces;
 
 	public Population(Integer lid, String lname, String municipalities, Long totalPopulation, Long population0_14,

@@ -1,59 +1,53 @@
 package com.edu.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 public class PopulationInfo {
-	
+
 	private Integer lid;
-	
+
 	private String lname;
-	
+
 	private String municipalities;
-	
+
 	private Long totalPopulation;
-	
+
 	private Long population0_14;
-	
+
 	private Long population15_64;
-	
+
 	private Long population_65;
-	
+
 	private Long foreigners;
-	
+
 	private Long inhabitedPopulation;
-	
+
 	private Long liveBirths;
-	
+
 	private Long deaths;
-	
+
 	private Long imigrantsIn;
-	
+
 	private Long imigrantsOut;
-	
+
 	private Long daytimePopulation;
-	
+
 	private Long households;
-	
+
 	private Long privateHouseholds;
-	
+
 	private Long nuclearFamilies;
-	
+
 	private Long onepersonHouseholds;
-	
+
 	private Long nuclearFamily_65;
-	
+
 	private Long agedCouple;
-	
+
 	private Long singleAgedCouple;
-	
+
 	private Long marriages;
-	
+
 	private Long divorces;
 
 	public PopulationInfo(Integer lid, String lname, String municipalities, Long totalPopulation, Long population0_14,
