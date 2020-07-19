@@ -2,6 +2,7 @@ package com.edu.test;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.edu.MySpringBootApplication;
 import com.edu.domain.Population;
+import com.edu.domain.TestUser;
 import com.edu.repository.PopulationDAO;
 
 @RunWith(SpringRunner.class)
@@ -26,24 +28,32 @@ public class ExcelInsert {
 	@Autowired
 	public PopulationDAO populationDAO;
 
-	@Test
-	public HSSFWorkbook readFile(String filename) throws IOException {
-		try (FileInputStream fis = new FileInputStream(filename)) {
-			return new HSSFWorkbook(fis); // NOSONAR - should not be closed here
-		}
-	}
+//	@Test
+//	public HSSFWorkbook readFile(String filename) throws IOException {
+//		try (FileInputStream fis = new FileInputStream(filename)) {
+//			return new HSSFWorkbook(fis); // NOSONAR - should not be closed here
+//		}
+//	}
+//	@Test
+//	public void testSelect() {
+//		Population p = new Population();
+//		List<Population> list = new ArrayList<Population>();
+//		System.out.println(list);
+//	}
 
 	@Test
-	public void excelAdd() {
+	public void excelAdd() throws IOException {
 		String fileName = "E:\\Java_work\\2020-a.xls";
-		try (HSSFWorkbook wb = readFile(fileName)) {
+		FileInputStream fis = new FileInputStream(fileName);
+		try (HSSFWorkbook wb = new HSSFWorkbook(fis)) {
 			System.out.println("Data dump:\n");
 			// 如果有多个表格的话：int k = 0; k < wb.getNumberOfSheets(); k++
 			HSSFSheet sheet = wb.getSheetAt(0);
 			int rows = sheet.getPhysicalNumberOfRows();
 			System.out.println(rows + " row(s).");
-			for (int r = 10; r < 1976; r++) {// rows
+			for (int r = 10; r < 1974; r++) {// rows
 				String str[] = new String[28];
+				// DecimalFormat df = new DecimalFormat("0");
 				HSSFRow row = sheet.getRow(r);
 				if (row == null) {
 					continue;
@@ -51,7 +61,27 @@ public class ExcelInsert {
 
 				for (int c = 7; c < 30; c++) {
 					HSSFCell cell = row.getCell(c);
-					str[c - 7] = cell.getStringCellValue();
+					String value = null;
+					if (cell != null) {
+						switch (cell.getCellType()) {
+
+						case FORMULA:
+							value = cell.getCellFormula();
+							break;
+
+						case NUMERIC:
+							value = new DecimalFormat("#").format(cell.getNumericCellValue());
+							break;
+
+						case STRING:
+							value = cell.getStringCellValue();
+							break;
+
+						default:
+							value = "UNKNOWN value of type " + cell.getCellType();
+						}
+						str[c - 7] = value;
+					}
 				}
 
 				Population p = new Population(Integer.valueOf(str[0]), str[1], str[2], Long.valueOf(str[3]),

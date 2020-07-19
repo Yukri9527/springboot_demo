@@ -7,57 +7,56 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity // 实体标签
-@Table(name = "population")
-public class Population {
-	@Id
+
+public class PopulationInfo {
+	
 	private Integer lid;
-	@Column(length = 50)
+	
 	private String lname;
-	@Column(length = 50)
+	
 	private String municipalities;
-	@Column(length = 20)
+	
 	private Long totalPopulation;
-	@Column(length = 20)
+	
 	private Long population0_14;
-	@Column(length = 20)
+	
 	private Long population15_64;
-	@Column(length = 20)
+	
 	private Long population_65;
-	@Column(length = 20)
+	
 	private Long foreigners;
-	@Column(length = 20)
+	
 	private Long inhabitedPopulation;
-	@Column(length = 20)
+	
 	private Long liveBirths;
-	@Column(length = 20)
+	
 	private Long deaths;
-	@Column(length = 20)
+	
 	private Long imigrantsIn;
-	@Column(length = 20)
+	
 	private Long imigrantsOut;
-	@Column(length = 20)
+	
 	private Long daytimePopulation;
-	@Column(length = 20)
+	
 	private Long households;
-	@Column(length = 20)
+	
 	private Long privateHouseholds;
-	@Column(length = 20)
+	
 	private Long nuclearFamilies;
-	@Column(length = 20)
+	
 	private Long onepersonHouseholds;
-	@Column(length = 20)
+	
 	private Long nuclearFamily_65;
-	@Column(length = 20)
+	
 	private Long agedCouple;
-	@Column(length = 20)
+	
 	private Long singleAgedCouple;
-	@Column(length = 20)
+	
 	private Long marriages;
-	@Column(length = 20)
+	
 	private Long divorces;
 
-	public Population(Integer lid, String lname, String municipalities, Long totalPopulation, Long population0_14,
+	public PopulationInfo(Integer lid, String lname, String municipalities, Long totalPopulation, Long population0_14,
 			Long population15_64, Long population_65, Long foreigners, Long inhabitedPopulation, Long liveBirths,
 			Long deaths, Long imigrantsIn, Long imigrantsOut, Long daytimePopulation, Long households,
 			Long privateHouseholds, Long nuclearFamilies, Long onepersonHouseholds, Long nuclearFamily_65,
@@ -88,7 +87,7 @@ public class Population {
 		this.divorces = divorces;
 	}
 
-	public Population() {
+	public PopulationInfo() {
 
 	}
 
