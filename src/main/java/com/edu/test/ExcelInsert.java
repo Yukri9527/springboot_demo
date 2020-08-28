@@ -28,18 +28,7 @@ public class ExcelInsert {
 	@Autowired
 	public PopulationDAO populationDAO;
 
-//	@Test
-//	public HSSFWorkbook readFile(String filename) throws IOException {
-//		try (FileInputStream fis = new FileInputStream(filename)) {
-//			return new HSSFWorkbook(fis); // NOSONAR - should not be closed here
-//		}
-//	}
-//	@Test
-//	public void testSelect() {
-//		Population p = new Population();
-//		List<Population> list = new ArrayList<Population>();
-//		System.out.println(list);
-//	}
+
 
 	@Test
 	public void excelAdd() throws IOException {

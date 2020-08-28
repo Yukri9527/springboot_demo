@@ -13,7 +13,7 @@ import com.edu.domain.DeptInfo;
 @Mapper
 public interface DeptMapper {
 
-	@Select("select * from dept")
+	@Select("select * from dept") // limit 10
 	@RequestMapping("deptInfoResult")
 	List<DeptInfo> getDeptList();
 

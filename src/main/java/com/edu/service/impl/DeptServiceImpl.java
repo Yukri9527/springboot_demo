@@ -1,5 +1,7 @@
 package com.edu.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +18,12 @@ public class DeptServiceImpl implements DeptService {
 	@Override
 	public DeptInfo getDeptById(Integer deptno) {
 		return deptMapper.getDeptById(deptno);
+	}
+
+	@Override
+	public List<DeptInfo> getDeptList() {
+		// TODO Auto-generated method stub
+		return deptMapper.getDeptList();
 	}
 
 }

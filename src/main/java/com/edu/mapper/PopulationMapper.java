@@ -13,7 +13,7 @@ import com.edu.domain.PopulationInfo;
 @Mapper
 public interface PopulationMapper {
 	
-	@Select("select * from population")
+	@Select("select * from population limit 10")
 	@RequestMapping("populationInfoResult")
 	List<PopulationInfo> getPopulationList();
 	
